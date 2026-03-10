@@ -1,0 +1,186 @@
+name: DevOps Case Study Submission
+description: Share your DevOps implementation story to help the community learn from real-world experience.
+title: "Case Study: [Your Project or Company Name]"
+labels: ["case-study", "community"]
+body:
+
+  - type: markdown
+    attributes:
+      value: "### 1. Submitter Information"
+
+  - type: input
+    id: full-name
+    attributes:
+      label: Full Name
+      placeholder: "e.g. Jane Doe"
+    validations:
+      required: true
+
+  - type: input
+    id: company
+    attributes:
+      label: Company / Organization
+      placeholder: "e.g. Acme Corp"
+    validations:
+      required: true
+
+  - type: input
+    id: role
+    attributes:
+      label: Your Role
+      placeholder: "e.g. Senior DevOps Engineer"
+    validations:
+      required: true
+
+  - type: input
+    id: contact-email
+    attributes:
+      label: Contact Email
+      description: "We'll only use this to follow up if we need clarification."
+      placeholder: "jane@acme.com"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### 2. Project Overview"
+
+  - type: input
+    id: project-name
+    attributes:
+      label: Project Name
+      placeholder: "e.g. Zero-Downtime Migration to Kubernetes"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: team-size
+    attributes:
+      label: Engineering Team Size
+      options:
+        - "1–5"
+        - "6–20"
+        - "21–50"
+        - "50+"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: industry
+    attributes:
+      label: Industry
+      options:
+        - SaaS / Software
+        - Fintech
+        - Healthcare
+        - E-commerce
+        - Media & Streaming
+        - Government / Public Sector
+        - Other
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### 3. Tech Stack"
+
+  - type: checkboxes
+    id: cloud-provider
+    attributes:
+      label: Cloud Provider(s)
+      options:
+        - label: AWS
+        - label: Google Cloud Platform (GCP)
+        - label: Microsoft Azure
+        - label: On-premise / Hybrid
+        - label: Other
+
+  - type: checkboxes
+    id: tooling
+    attributes:
+      label: Tools & Technologies Used
+      description: "Check all that apply."
+      options:
+        - label: Docker / Podman
+        - label: Kubernetes / EKS / GKE / AKS
+        - label: Terraform / OpenTofu
+        - label: Helm
+        - label: GitHub Actions / GitLab CI / Jenkins
+        - label: ArgoCD / Flux (GitOps)
+        - label: Prometheus / Grafana / Datadog
+        - label: Vault (secrets management)
+        - label: Ansible / Chef / Puppet
+
+  - type: markdown
+    attributes:
+      value: "### 4. The Challenge"
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: What problem were you solving?
+      description: "Describe the pain point, bottleneck, or failure that triggered this initiative."
+      placeholder: "e.g. Our monolithic deployment took 45 minutes and caused 10–15 minutes of downtime every release..."
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### 5. The Solution"
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: What did you implement?
+      description: "Walk through the architecture or process changes. Include diagrams or links if helpful."
+      placeholder: "e.g. We broke the monolith into 12 microservices, containerized each with Docker, and deployed to EKS using ArgoCD for GitOps..."
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### 6. Results & Impact"
+
+  - type: textarea
+    id: results
+    attributes:
+      label: Outcomes and metrics
+      description: "Quantify the impact where possible — deployment frequency, MTTR, cost savings, uptime improvements, etc."
+      placeholder: "e.g. Deploy time dropped from 45 min → 4 min. Downtime eliminated. MTTR reduced by 60%..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: deployment-frequency
+    attributes:
+      label: Deployment Frequency (after implementation)
+      options:
+        - "Multiple times per day"
+        - "Once per day"
+        - "A few times per week"
+        - "Once per week"
+        - "Less than once per week"
+
+  - type: markdown
+    attributes:
+      value: "### 7. Lessons Learned"
+
+  - type: textarea
+    id: lessons
+    attributes:
+      label: What would you do differently?
+      description: "Pitfalls, surprises, or advice for teams attempting something similar."
+      placeholder: "e.g. We underestimated the cultural shift needed for GitOps adoption — invest in team training early..."
+
+  - type: markdown
+    attributes:
+      value: "### 8. Submission Consent"
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Acknowledgment
+      options:
+        - label: "I confirm the information is accurate and I have permission to share it publicly."
+          required: true
+        - label: "I am happy to be contacted for a follow-up community post or podcast feature."
