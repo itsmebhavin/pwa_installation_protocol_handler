@@ -4,6 +4,14 @@ Angular 21 · Standalone Components · Signals · Service Worker
 
 ---
 
+## Preview
+
+![PWA Desktop App — Dashboard with install prompt and navigation cards](src/assets/screenshot.png)
+
+> The dashboard running in Chrome. The **Install as App** button (top right) triggers the native browser install prompt. Once installed, the app launches as a standalone desktop window — no browser UI, offline-capable, and reachable via the `web+pwaapp://` custom protocol handler.
+
+---
+
 ## 1. Setup
 
 ```bash
@@ -17,7 +25,7 @@ npm install
 
 ## 2. Project Structure
 
-```
+```text
 src/
   app/
     components/
@@ -242,7 +250,7 @@ export class InstallPwaService {
 **Key signals:**
 
 | Signal | Meaning |
-|---|---|
+| --- | --- |
 | `canInstall()` | `beforeinstallprompt` fired — show install button |
 | `isInstalled()` | User accepted install (persisted in localStorage) |
 | `isStandalone()` | App is running as installed PWA (not in browser tab) |
@@ -367,7 +375,7 @@ Allows any other app (Electron, another PWA, browser) to launch this PWA.
 
 ### Test in Chrome address bar
 
-```
+```text
 web+pwaapp://hello
 ```
 
@@ -423,13 +431,14 @@ export class DashboardComponent {
 ## 15. Protocol Handler — Troubleshooting
 
 | Symptom | Fix |
-|---|---|
+| --- | --- |
 | `web+pwaapp://` not opening anything | PWA was installed before `protocol_handlers` was added — uninstall + reinstall |
 | Not in `chrome://settings/content/handlers` | Same as above — reinstall |
 | Prompt appears but PWA doesn't open | Check if a different app has claimed the protocol |
 | Works in address bar, not console | `window.location.href` in console may be blocked by CSP |
 
 **Reinstall steps:**
+
 1. `chrome://apps` → right-click → Remove from Chrome
 2. `ng build`
 3. `npx http-server dist/pwa-desktop-app/browser -p 8080 --cors -c-1`
@@ -441,7 +450,7 @@ export class DashboardComponent {
 ## 16. UX State Summary
 
 | User state | What they see |
-|---|---|
+| --- | --- |
 | First visit, installable | Install button in topbar + install banner in content |
 | Already installed, opened in browser | "App Installed" green chip with tooltip |
 | Running as standalone PWA | Neither — no install UI shown |
